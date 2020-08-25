@@ -1,0 +1,42 @@
+//
+//  BuDeJie.pch
+//  BuDeJie
+//
+//  Created by xiaomage on 16/3/12.
+//  Copyright © 2016年 小码哥. All rights reserved.
+//
+
+/*
+    pch步骤:1.提前编译Pch
+ 
+    1.存放公用宏
+    2.存放公用头文件
+    3.自定义Log
+ */
+
+#import "UIView+Frame.h"
+#import "UIBarButtonItem+Item.h"
+
+#define XMGColor(r,g,b) [UIColor colorWithRed:(r) / 256.0 green:(g) / 256.0 blue:(b) / 256.0 alpha:1]
+#define XMGRandomColor XMGColor(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255))
+
+/***********屏幕适配*************/
+#define XMGScreenW [UIScreen mainScreen].bounds.size.width
+#define XMGScreenH [UIScreen mainScreen].bounds.size.height
+#define iphone6P (XMGScreenH == 736)
+#define iphone6 (XMGScreenH == 667)
+#define iphone5 (XMGScreenH == 568)
+#define iphone4 (XMGScreenH == 480)
+/***********屏幕适配*************/
+
+#define XMGFunc XMGLog(@"%s",__func__)
+
+#ifdef DEBUG // 调试
+
+#define XMGLog(...) NSLog(__VA_ARGS__);
+
+#else // 发布
+
+#define XMGLog(...)
+
+#endif
